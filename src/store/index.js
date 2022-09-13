@@ -11,7 +11,7 @@ const store = createStore(
   rootReducer,
   composeEnhancers(
     applyMiddleware(
-      thunk.withExtraArguments({
+      thunk.withExtraArgument({
         client: axios,
         api,
       })
