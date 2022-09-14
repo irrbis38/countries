@@ -1,11 +1,13 @@
 import styled from "styled-components";
+
 import { useSelector, useDispatch } from "react-redux";
+import { setTheme } from "./../store/theme/theme-actions";
+
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { IoMoon, IoMoonOutline } from "react-icons/io5";
 
 import { Container } from "./Container";
-import { setTheme } from "./../store/theme/theme-actions";
 
 const HeaderEl = styled.header`
   box-shadow: var(--shadow);
