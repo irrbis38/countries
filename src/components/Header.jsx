@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 import { useSelector, useDispatch } from "react-redux";
 import { setTheme } from "./../store/theme/theme-actions";
+import { clearControls } from "../store/controls/controls-actions";
 
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -45,6 +46,8 @@ export const Header = () => {
   const toggleTheme = () =>
     dispatch(setTheme(theme === "light" ? "dark" : "light"));
 
+  const cleanUp = () => dispatch(clearControls());
+
   useEffect(() => {
     document.body.setAttribute("data-theme", theme);
   }, [theme]);
@@ -53,7 +56,7 @@ export const Header = () => {
     <HeaderEl>
       <Container>
         <Wrapper>
-          <Title>Where is the world?</Title>
+          <Title onClick={cleanUp}>Where is the world?</Title>
           <ModeSwitcher onClick={toggleTheme}>
             {theme === "light" ? (
               <IoMoonOutline size="14px" />
